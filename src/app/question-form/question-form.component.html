@@ -1,0 +1,17 @@
+<div class="container">
+	<h1 class="text-center">Otestujte si Vaše mentálne zdravie</h1>
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<form (submit)="onFormSubmit()">
+				<div *ngFor="let question of questions; let i = index" class="mb-3">
+					<label>{{ question.question }}</label>
+					<select [(ngModel)]="selectedAnswers[i]" name="answer" class="form-select">
+						<option value="" disabled selected>Vyberte odpoveď</option>
+						<option *ngFor="let answer of question.answer" [value]="answer">{{ answer }}</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Odoslať</button>
+			</form>
+		</div>
+	</div>
+</div>
